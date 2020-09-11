@@ -1,0 +1,42 @@
+<div>
+    <h2>Таблица уроков</h2>
+  <div>
+    <div class="form-group">
+      <label>Номер</label>
+      <input type="number" name="number" [(ngModel)]="lesson.number" #lessonNumber="ngModel">
+    </div>
+    <div class="form-group">
+      <label>Дата урока</label>
+        <input type="date" name="dateLesson" [(ngModel)]="lesson.dateLesson" #lessonDateLesson="ngModel" required>
+    </div>
+    <div class="form-group">
+      <label>Тема урока</label>
+      <input type="string" class="form-control" name="topic" [(ngModel)]="lesson.topic" #lessonTopic="ngModel" />
+    </div>
+    <div class="form-group">
+      <label>Домашнее задание</label>
+      <input type="string" class="form-control" name="homework" [(ngModel)]="lesson.homework" #lessonHomework="ngModel" />
+    </div>
+    <div class="form-group">
+      <label>Примечание</label>
+      <input type="string" class="form-control" name="note" [(ngModel)]="lesson.note" #lessonNote="ngModel" />
+    </div>
+    <div class="form-group">
+      <button class="btn btn-default" (click)="addLesson()">
+        Добавить
+      </button>
+    </div>
+  </div>
+  <div>
+    <h3>Добавленные элементы</h3>
+    <ul *ngFor="let p of lessons">
+      <li>{{p.number}}</li>
+      <li>{{p.dateLesson}}</li>
+      <li> {{p.topic}} </li>
+      <li> {{p.homework}}</li>
+      <li> {{p.note}}</li>
+    </ul>
+  </div>
+  </div>
+  
+  
