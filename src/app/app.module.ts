@@ -3,14 +3,10 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { LessonComponent } from './lesson/lesson/lesson.component';
-import { RaitingComponent } from './raiting/raiting/raiting.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LessonComponent,
-    RaitingComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,

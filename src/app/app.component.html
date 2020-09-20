@@ -1,1 +1,78 @@
-<app-lesson></app-lesson> <app-raiting></app-raiting>
+<div>
+  <h2>Таблица уроков</h2>
+  <div>
+    <div class="form-group">
+      <label>Номер</label>
+      <input type="number" name="number" [(ngModel)]="lesson.number" #lessonNumber="ngModel" />
+    </div>
+    <div class="form-group">
+      <label>Дата урока</label>
+      <input type="date" name="dateLesson" [(ngModel)]="lesson.dateLesson" #lessonDateLesson="ngModel" required>
+    </div>
+    <div class="form-group">
+      <label>Тема урока</label>
+      <input type="text" class="form-control" name="topic" [(ngModel)]="lesson.topic" #lessonTopic="ngModel" />
+    </div>
+    <div class="form-group">
+      <label>Домашнее задание</label>
+      <input type="text" class="form-control" name="homework" [(ngModel)]="lesson.homework"
+        #lessonHomework="ngModel" />
+    </div>
+    <div class="form-group">
+      <label>Примечание</label>
+      <input type="text" class="form-control" name="note" [(ngModel)]="lesson.note" #lessonNote="ngModel" />
+    </div>
+    <div class="form-group">
+      <button class="btn btn-default" (click)="addLesson()">
+        Добавить
+      </button>
+    </div>
+  </div>
+
+  <div>
+    <h2>Уроки</h2>
+    <table>
+      <tr>
+        <th>Номер</th>
+        <th>Дата урока</th>
+        <th>Тема урока</th>
+        <th>Домашнее задание</th>
+        <th>Примечание</th>
+      </tr>
+      <tr *ngFor="let lesson of lessons">
+        <td>{{lesson.number}}</td>
+        <td>{{lesson.dateLesson}}</td>
+        <td>{{lesson.topic}} </td>
+        <td>{{lesson.homework}}</td>
+        <td>{{lesson.note}}</td>
+      </tr>
+    </table>
+  </div>
+
+  <div>
+    <h2>Классный журнал</h2>
+    <table>
+      <tr>
+        <th>Ф.И.О.</th>
+        <th *ngFor="let l of lessons">{{l.dateLesson}} {{l.topic}}</th>
+        <th>Средний балл</th>
+        <th>Округленный балл</th>
+      </tr>
+      <tr *ngFor="let s of student">
+        <th> 
+      
+<input type="text" name="student" [(ngModel)]="raiting.student"/>
+
+        </th>
+        <th *ngFor="let l of lessons">
+          <select class="form-control" name="raits" (change)="addRait(r.value, s)" #r>
+            <option *ngFor="let r of raits" [value]="r">
+              {{r}}
+            </option>
+          </select>
+        </th>
+        <th>{{s.score}}</th>
+        <th>{{s.averageScore}}</th>
+      </tr>
+    </table>
+  </div>
